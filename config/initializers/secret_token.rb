@@ -1,0 +1,12 @@
+# Be sure to restart your server when you modify this file.
+
+# Your secret key is used for verifying the integrity of signed cookies.
+# If you change this key, all old signed cookies will become invalid!
+
+# Make sure the secret is at least 30 characters and all random,
+# no regular words or you'll be exposed to dictionary attacks.
+# You can use `rake secret` to generate a secure secret key.
+
+# Make sure your secret_key_base is kept private
+# if you're sharing your code publicly.
+PhiloApp::Application.config.secret_key_base = '6a46a3bb9c912e846841bf370fd83b4358a944a2233614dc89ac79a947c82957a4a43843583e59b6baae16bd5e6a2298b20998a2dd813be6af65a10381316343'

@@ -1,0 +1,12 @@
+<% provide :title, 'sign in' %>
+<h1> sign in</h1>
+
+<div >
+<div >
+<%= form_tag sessions_path do%> # the '_tag' allows us to do this without having a model in existence
+<%= label_tab :email %>
+<%= text_field_tag :email %>
+<%= label_tab :password %>
+<%= password_field_tag :password %>
+<%= submit_tag "sign in:%>
+<%end%>

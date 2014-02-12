@@ -1,4 +1,12 @@
 PhiloApp::Application.routes.draw do
+
+  get "static_pages/home"
+  get "static_pages/help"
+resources :users
+root 'welcome#index'
+resources :sessions, only:[:new, :create, :destroy] #we only need a few crud actions
+#match '/signin', to: 'sessions#new', via: 'get'
+#match '/signout', to: 'sessions#destroy', via: 'delete' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

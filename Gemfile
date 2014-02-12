@@ -37,7 +37,7 @@ gem 'annotate'
 gem 'authlogic', '3.3.0'
 gem 'cancan', '1.6.10'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'

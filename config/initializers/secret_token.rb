@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
 PhiloApp::Application.config.secret_key_base = '6a46a3bb9c912e846841bf370fd83b4358a944a2233614dc89ac79a947c82957a4a43843583e59b6baae16bd5e6a2298b20998a2dd813be6af65a10381316343'

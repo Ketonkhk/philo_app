@@ -1,0 +1,16 @@
+<% provide(:title, 'Ballots') %>
+<h1>Ballots</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@ballot) do |f| %>
+   
+    <%= f.label :score %>
+      <%= f.text_field :score %>
+    
+    
+    
+     <%= f.submit "Submit ballot", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 PhiloApp::Application.routes.draw do
 
+ resources :ballots
  resources :sessions, only: [:new, :create, :destroy]
  resources :users
  root 'static_pages#home'

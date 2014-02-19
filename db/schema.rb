@@ -11,22 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217165804) do
+ActiveRecord::Schema.define(version: 20140217231021) do
 
   create_table "ballots", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "score"
+    t.string   "comment"
+    t.integer  "round_id"
+    t.integer  "score_id"
+    t.integer  "debate_id"
+    t.integer  "user_id"
   end
 
   create_table "debates", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ballot_id"
+    t.integer  "round_id"
+    t.integer  "user_id"
   end
 
   create_table "rounds", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "debate_id"
+    t.integer  "ballot_id"
+    t.integer  "user_id"
   end
 
   create_table "scores", force: true do |t|
@@ -35,6 +46,10 @@ ActiveRecord::Schema.define(version: 20140217165804) do
     t.integer  "win"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ballot_id"
+    t.integer  "user_id"
+    t.string   "comment"
+    t.string   "individualcomments"
   end
 
   create_table "users", force: true do |t|
@@ -46,6 +61,10 @@ ActiveRecord::Schema.define(version: 20140217165804) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.integer  "round_id"
+    t.integer  "debate_id"
+    t.integer  "ballot_id"
+    t.integer  "score_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

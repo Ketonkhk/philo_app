@@ -1,0 +1,12 @@
+
+ 
+ <% provide(:title, 'All ballots') %>
+<h1>Ballots</h1>
+
+<%= will_paginate %>
+
+<ul class="ballots">
+   <%= render @ballots %>
+</ul>
+
+<%= will_paginate %>

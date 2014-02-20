@@ -12,7 +12,7 @@ class BallotsController < ApplicationController
    
   def new
   @ballot = Ballot.new
-  4.times {@ballot.scores.build}
+  4.times {@ballot.scores.build(params[:user_id])}
   end
   
   def index
@@ -27,5 +27,5 @@ class BallotsController < ApplicationController
       .permit(:comment, :user_id,
         :scores_attributes=>[:points, :rank])
   end
-  
+
 end

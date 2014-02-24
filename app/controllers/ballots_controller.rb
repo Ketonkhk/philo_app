@@ -6,7 +6,7 @@ class BallotsController < ApplicationController
       flash[:success] = "Thank you for judging"
       redirect_to @user
     else
-      render 'ballots/new'
+      render 'new'
     end
   end 
    

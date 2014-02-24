@@ -11,16 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217231021) do
+ActiveRecord::Schema.define(version: 20140224225307) do
 
   create_table "ballots", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "score"
     t.string   "comment"
     t.integer  "round_id"
-    t.integer  "score_id"
-    t.integer  "debate_id"
     t.integer  "user_id"
   end
 
@@ -35,8 +32,6 @@ ActiveRecord::Schema.define(version: 20140217231021) do
   create_table "rounds", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "debate_id"
-    t.integer  "ballot_id"
     t.integer  "user_id"
   end
 

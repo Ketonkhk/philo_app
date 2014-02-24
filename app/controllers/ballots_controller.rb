@@ -1,18 +1,24 @@
 class BallotsController < ApplicationController
 
   def create
-    @ballot = Ballot.new(ballot_params)    
+    @ballot = current_user.ballots.build(params[:ballot_params])  
     if @ballot.save
       flash[:success] = "Thank you for judging"
       redirect_to @user
     else
-      render 'new'
+      render 'ballots/new'
     end
   end 
    
   def new
   @ballot = Ballot.new
-  4.times {@ballot.scores.build(params[:user_id])}
+  my_users = User.all.shuffle #remove judge from this listing
+  
+  4.times do |s|
+  @debater = my_users.pop
+  @ballot.scores.build(:user_id => @debater.id)
+  end
+  
   end
   
   def index
@@ -21,11 +27,11 @@ class BallotsController < ApplicationController
   
   private
   	
-  	def ballot_params
+  	def ballot_params 
      params
       .require(:ballot)
       .permit(:comment, :user_id,
-        :scores_attributes=>[:points, :rank])
+        :scores_attributes=>[:points, :rank, :individualcomments])
   end
 
 end

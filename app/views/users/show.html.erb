@@ -8,5 +8,14 @@
   <%= @user.first %> <%= @user.last %>
 </h1>
   </section>
-</aside>
-  <div 
+  </aside>
+  <div class="span8">
+    <% if @user.ballots.any? %>
+      <h3>Ballots (<%= @user.ballots.count %>)</h3>
+      <ol class="ballots">
+        <%= render @ballots %>
+      </ol>
+      <%= will_paginate @ballots %>
+    <% end %>
+  </div>
+</div>

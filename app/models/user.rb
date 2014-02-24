@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  first           :string(255)
+#  last            :string(255)
+#  email           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#  round_id        :integer
+#  debate_id       :integer
+#  ballot_id       :integer
+#  score_id        :integer
+#
+
 class User < ActiveRecord::Base
 before_save { self.email = email.downcase }
 before_create :create_remember_token

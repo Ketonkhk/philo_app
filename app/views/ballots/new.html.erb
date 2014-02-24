@@ -7,14 +7,19 @@
   
 <div>
 <%= form.fields_for :scores do |f| %>
-<%= f.label :points, "Speakerpoints" %>
+ <%= render 'shared/error_messages', object: f.object %>
+ <% @name = User.find(f.object.user_id).first + " " + User.find(f.object.user_id).last%>
+<%= f.label :points, "Speakerpoints for " + @name %>  
 <%= f.text_field :points %>
-<%= f.label :individualcomments, "Comments"%>
+<%= f.label :individualcomments, "Comments for " + @name %>
 <%= f.text_area :individualcomments %> 
+ 
+
   <% end %>
 </div>
   <%= form.label :comment, "Reasons for descision" %>
 <%= form.text_area :comment %> 
+
 <div>  
      <%= form.submit "Submit ballot", class: "btn btn-large btn-primary" %>
     <% end %>

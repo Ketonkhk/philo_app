@@ -22,7 +22,7 @@ before_save { self.email = email.downcase }
 before_create :create_remember_token
   has_many :debates
   has_many :rounds, :through => :debates
-  has_many :ballots, :through => :debates
+  has_many :ballots
   has_many :scores
   
   has_secure_password

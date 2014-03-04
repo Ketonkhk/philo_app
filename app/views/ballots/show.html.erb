@@ -1,13 +1,17 @@
 <% provide :title, 'Ballot' %>
 
 
-
+<% @a = 1 # this variable is called in an if statement in the score partial.%>
+<%#It enables different show methods to call the _score file without displaying redundancies.%> 
+<% @b = 2 # this variable is called in an if statement in the ballot partial.%>
+<%#It enables different show methods to call the _ballot file without displaying redundancies.%> 
 <div>
-	<h3>Comments</h3>
-	<%= @ballot.user_id %>
+	<h3>Results</h3>
+	<% user = User.find(@ballot.user_id) %>
+<h5> Judged by:  <%= link_to user.first + " " + user.last, user_path(@ballot.user_id) %></h5> 
 	<%=  render @ballot.scores %>
 	<h6>Reasons for Decision</h6>
-	<%=  @ballot.comment %>
+	<p><%=  @ballot.comment %></p>
 	
 </div>
 </div>

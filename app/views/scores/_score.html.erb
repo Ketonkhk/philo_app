@@ -1,8 +1,17 @@
+<% if @a == 1 # refer to ballot/show file to view the purpose of this. %>
+<h5> Scores for  <%= link_to User.find(score.user_id).first + " " + User.find(score.user_id).last, user_path(score.user_id) %> </h5> 
+<% else %>
+<% x = Ballot.find(score.ballot_id)%> 
+Ballot # <%= link_to score.ballot_id, ballot_path(score.ballot_id)%>
+<p></p>
+Judged By: 
+<%= link_to User.find(x.user_id).first + " " + User.find(x.user_id).last, user_path(x.user_id)%>
 
-<h6> Scores for  <%= link_to User.find(score.user_id).first + " " + User.find(score.user_id).first, user_path(score.user_id) %> </h6> 
+<% end %>
+<p></p>
 Speakerpoints:
 <%= score.points %>
-Comments:
+<p></p>
+Comments: 
 <%= score.individualcomments %>
-Ballot
-<%= score.ballot_id %>
+<p></p>

@@ -1,6 +1,8 @@
 <li>
-  <span class="content"> <%= ballot.user_id %>
-
+<% user = User.find(ballot.user_id) %>
+<% if @b == 2  #refer to ballot/show file to view the purpose of this.%>
+  <span class="content"> Judged by <%= link_to user.first + " " + user.last, user_path(ballot.user_id) %>
+<% end %>
    </span>
   <%= link_to ballot.id, ballot %>
   <span class="timestamp">

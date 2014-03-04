@@ -12,7 +12,7 @@ class BallotsController < ApplicationController
   end 
    
   def new
-  @ballot = Ballot.new
+  @ballot = Ballot.new(user_id: current_user.id)
   my_users = User.all.shuffle #remove judge from this listing
   
   4.times do |s|
@@ -34,7 +34,7 @@ class BallotsController < ApplicationController
      params
       .require(:ballot)
       .permit(:comment, :user_id, :round_id,
-        :scores_attributes=>[:points, :individualcomments, :user_id])
+        :scores_attributes=>[:points, :individualcomments, :user_id, :ballot_id])
   end
 
 end

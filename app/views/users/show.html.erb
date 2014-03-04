@@ -10,6 +10,14 @@
   </section>
   </aside>
   <div class="span8">
+  <% if @user.ballots.any? %>
+      <h3>Ballots that you have judged (<%= @user.ballots.count %>)</h3>
+      <ol class="scores">
+        <%= render @ballots %>
+      </ol>
+      <%= will_paginate @ballots %>
+    <% end %>
+    
     <% if @user.scores.any? %>
       <h3>Scores (<%= @user.scores.count %>)</h3>
       <ol class="scores">
@@ -17,5 +25,6 @@
       </ol>
       <%= will_paginate @scores %>
     <% end %>
+    
   </div>
 </div>

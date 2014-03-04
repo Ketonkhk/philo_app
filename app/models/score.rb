@@ -17,7 +17,7 @@
 class Score < ActiveRecord::Base
 belongs_to :ballot
 belongs_to :user
-validates :points, :presence => true
+validates :points, :presence => true, :inclusion => 1..30
 #validates :rank, :presence => true  
 validates :individualcomments, :presence => true  
  

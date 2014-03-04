@@ -14,7 +14,7 @@
 #  round_id        :integer
 #  debate_id       :integer
 #  ballot_id       :integer
-#  score_id        :integer
+#  score_id        :integer **remove from table**
 #
 
 class User < ActiveRecord::Base
@@ -23,13 +23,13 @@ before_create :create_remember_token
   has_many :debates
   has_many :rounds, :through => :debates
   has_many :ballots, :through => :debates
-  has_many :scores, :through => :ballots
+  has_many :scores
   
   has_secure_password
   
  validates :first, :last, :email, :presence=>true, length: {maximum: 50}
  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
- validates :email, :uniqueness=>{:case_sensitive=>false}, format: { with: VALID_EMAIL_REGEX }
+ validates :email,:uniqueness=>{:case_sensitive=>false}, format: { with: VALID_EMAIL_REGEX }
  validates :password, length: { minimum: 6 }
  validates :password, :password_confirmation, :presence=>true
  

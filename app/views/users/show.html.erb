@@ -10,12 +10,12 @@
   </section>
   </aside>
   <div class="span8">
-    <% if @user.ballots.any? %>
-      <h3>Ballots (<%= @user.ballots.count %>)</h3>
-      <ol class="ballots">
-        <%= render @ballots %>
+    <% if @user.scores.any? %>
+      <h3>Scores (<%= @user.scores.count %>)</h3>
+      <ol class="scores">
+        <%= render @scores %>
       </ol>
-      <%= will_paginate @ballots %>
+      <%= will_paginate @scores %>
     <% end %>
   </div>
 </div>

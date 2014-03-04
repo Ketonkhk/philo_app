@@ -1,0 +1,9 @@
+<li>
+  <span class="content"> <%= ballot.user_id %>
+
+   </span>
+  <%= link_to ballot.id, ballot %>
+  <span class="timestamp">
+    <%= time_ago_in_words(ballot.created_at) %> ago.
+  </span>
+</li>

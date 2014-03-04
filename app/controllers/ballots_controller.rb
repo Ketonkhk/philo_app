@@ -1,10 +1,11 @@
 class BallotsController < ApplicationController
-
+ before_action :signed_in_user, only: [:new]
   def create
-    @ballot = current_user.ballots.build(params[:ballot_params])  
+    debugger
+    @ballot = current_user.ballots.build(ballot_params)  
     if @ballot.save
       flash[:success] = "Thank you for judging"
-      redirect_to @user
+      redirect_to(root_url)
     else
       render 'new'
     end
@@ -15,8 +16,7 @@ class BallotsController < ApplicationController
   my_users = User.all.shuffle #remove judge from this listing
   
   4.times do |s|
-  @debater = my_users.pop
-  @ballot.scores.build(:user_id => @debater.id)
+  @ballot.scores.build(:user_id => my_users.pop.id)
   end
   
   end
@@ -25,13 +25,16 @@ class BallotsController < ApplicationController
   @ballots = Ballot.paginate(page: params[:page])
   end
   
+  def show
+  @ballot = Ballot.find(params[:id])
+  end
   private
   	
   	def ballot_params 
      params
       .require(:ballot)
       .permit(:comment, :user_id,
-        :scores_attributes=>[:points, :rank, :individualcomments])
+        :scores_attributes=>[:points, :individualcomments])
   end
 
 end

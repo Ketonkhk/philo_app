@@ -1,1 +1,13 @@
-<h1> Ballot; fill in tournament and round with erb </h1>
+<% provide :title, 'Ballot' %>
+
+
+
+<div>
+	<h3>Comments</h3>
+	<%= @ballot.user_id %>
+	<%=  render @ballot.scores %>
+	<h6>Reasons for Decision</h6>
+	<%=  @ballot.comment %>
+	
+</div>
+</div>

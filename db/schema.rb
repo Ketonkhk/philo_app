@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224225307) do
+ActiveRecord::Schema.define(version: 20140224231301) do
 
   create_table "ballots", force: true do |t|
     t.datetime "created_at"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20140224225307) do
     t.integer  "round_id"
     t.integer  "debate_id"
     t.integer  "ballot_id"
-    t.integer  "score_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

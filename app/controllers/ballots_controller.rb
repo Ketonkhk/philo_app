@@ -33,8 +33,8 @@ class BallotsController < ApplicationController
   	def ballot_params 
      params
       .require(:ballot)
-      .permit(:comment, :user_id,
-        :scores_attributes=>[:points, :individualcomments])
+      .permit(:comment, :user_id, :round_id,
+        :scores_attributes=>[:points, :individualcomments, :user_id])
   end
 
 end

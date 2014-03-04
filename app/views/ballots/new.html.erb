@@ -5,13 +5,13 @@
   <div class="span6 offset3">
     <%= form_for(@ballot) do |form| %>
     <%= render 'shared/error_messages', object: form.object %>
-<% form.hidden_field :user_id %>  
+<%= form.hidden_field :user_id %>  
 <div>
 
 <%= form.fields_for :scores do |f| %>
 <% @name = User.find(f.object.user_id).first + " " + User.find(f.object.user_id).last %>
  <%= render 'shared/error_messages', object: f.object %>
- <% f.hidden_field :user_id %> 
+ <%= f.hidden_field :user_id %> 
 <%= f.label :points, "Speakerpoints for " + @name %>  
 <%= f.text_field :points %>
 <%= f.label :individualcomments, "Comments for " + @name %>

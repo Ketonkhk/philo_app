@@ -1,6 +1,8 @@
 
-<h6> Scores for  <%= score.user_id %> </h6> 
+<h6> Scores for  <%= link_to User.find(score.user_id).first + " " + User.find(score.user_id).first, user_path(score.user_id) %> </h6> 
 Speakerpoints:
 <%= score.points %>
 Comments:
 <%= score.individualcomments %>
+Ballot
+<%= score.ballot_id %>

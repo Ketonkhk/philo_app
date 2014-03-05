@@ -1,7 +1,7 @@
 class BallotsController < ApplicationController
  before_action :signed_in_user, only: [:new]
   def create
-    debugger
+  #  debugger
     @ballot = current_user.ballots.build(ballot_params)  
     if @ballot.save
       flash[:success] = "Thank you for judging"
